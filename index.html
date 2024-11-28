@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .shadowbox {
+      width: 90%;
+      max-width: 20em;
+      border: 1px solid #333;
+      box-shadow: 8px 8px 5px #444;
+      padding: 8px 12px;
+      background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
+      margin: 0 auto;
+      text-align: center;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      direction: ltr;
+    }
+    body.arabic {
+      direction: rtl;
+      font-family: "Arial", sans-serif;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .zoom-note {
+      font-size: 1.2rem;
+      color: #f00;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    const content = {
+      en: {
+        heading: "The red line represents where the curvature of the sphere Earth (Radius: 3959 Miles) would start blocking our view into the distance.",
+        observer: "3 inch observer height:",
+        horizon: "Globe geometric horizon distance (aka earth curve): 0.6 miles.",
+        distance: "Distance to farthest visible surface feature: 13.8 miles.",
+        beyond: "That's 22x beyond a claimed globe geometric limitation.",
+        calcLink: "Earth Curvature Calculator",
+        zoomNote: "For the best view, please zoom to 90% in your browser."
+      },
+      ar: {
+        heading: "يمثل الخط الأحمر المكان الذي يبدأ فيه انحناء الكرة الأرضية (نصف القطر: 3959 ميلاً) بحجب رؤيتنا إلى المسافة.",
+        observer: "ارتفاع المراقب: 3 بوصات:",
+        horizon: "المسافة إلى الأفق الهندسي للكرة الأرضية: 0.6 ميل.",
+        distance: "المسافة إلى أبعد ميزة سطح مرئية: 13.8 ميلاً.",
+        beyond: "هذا 22 مرة أبعد من الحد الهندسي المزعوم للكرة الأرضية.",
+        calcLink: "حاسبة انحناء الأرض",
+        zoomNote: "لأفضل عرض، يرجى تكبير الصفحة إلى 90٪ في متصفحك."
+      }
+    };
+
+    function switchLanguage(lang) {
+      document.body.className = lang === "ar" ? "arabic" : "";
+      document.getElementById("heading").innerText = content[lang].heading;
+      document.getElementById("observer").innerText = content[lang].observer;
+      document.getElementById("horizon").innerText = content[lang].horizon;
+      document.getElementById("distance").innerText = content[lang].distance;
+      document.getElementById("beyond").innerText = content[lang].beyond;
+      document.getElementById("calcLink").innerText = content[lang].calcLink;
+      document.getElementById("zoomNote").innerText = content[lang].zoomNote;
+    }
+  </script>
+</head>
+<body>
+  <button onclick="switchLanguage('en')">English</button>
+  <button onclick="switchLanguage('ar')">العربية</button>
+
+  <div class="zoom-note" id="zoomNote">
+    For the best view, please zoom to 75% in your browser.
+  </div>
+
+  <div class="shadowbox">
+    <p id="heading">
+      The red line represents where the <strong>curvature</strong> of the sphere Earth (Radius: 3959 Miles) would start blocking our view into the distance.
+    </p>
+    <p id="observer">3 inch observer height:</p>
+    <p id="horizon">Globe geometric horizon distance (aka earth curve): 0.6 miles.</p>
+    <p id="distance">Distance to farthest visible surface feature: 13.8 miles.</p>
+    <p id="beyond">That's 22x beyond a claimed globe geometric limitation.</p>
+    <img src="media/im.png" alt="Illustration showing Earth's curvature" width="200">
+    <br>
+    <img src="https://media.giphy.com/media/h80jYD4ZGH6VAj6cO8/giphy.gif" alt="Animation depicting observer view" width="200">
+    <br>
+    <a id="calcLink" href="https://dizzib.github.io/earth/curve-calc/?d0=13.8&h0=0.25&unit=imperial" target="_blank">Earth <strong>Curvature</strong> Calculator</a>
+  </div>
+</body>
+</html>
